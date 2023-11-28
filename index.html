@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="pro.css" />
+    <link rel="stylesheet" href="all.min.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="box">
+      <div class="inputBox">
+        <input
+          type="password"
+          id="password"
+          placeholder="password"
+          onkeyup="checkPassword(this.value)"
+        />
+        <span id="toggleBtn"><i class="fa-solid fa-eye"></i></span>
+      </div>
+
+      <div class="validation">
+        <ul>
+          <li class="lower">
+            <i class="fa-solid fa-circle-dot"></i>
+            <div class="heding">At Least one lowercase character</div>
+          </li>
+          <li class="upper">
+            <i class="fa-solid fa-circle-dot"></i>
+            <div class="heding">At Least one uppercase character</div>
+          </li>
+          <li class="number">
+            <i class="fa-solid fa-circle-dot"></i>
+            <div class="heding">At Least one number</div>
+          </li>
+          <li class="special">
+            <i class="fa-solid fa-circle-dot"></i>
+            <div class="heding">At Least one special character</div>
+          </li>
+          <li class="length">
+            <i class="fa-solid fa-circle-dot"></i>
+            <div class="heding">At Least 8 character</div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <script>
+      let password = document.getElementById("password");
+      let iconPass = document.getElementById("toggleBtn");
+      let iconPassI = document.querySelector("#toggleBtn i");
+
+      let lowerCase = document.querySelector(".validation ul .lower");
+      let uppercase = document.querySelector(".validation ul .upper");
+      let numbers = document.querySelector(".validation ul .number");
+      let specials = document.querySelector(".validation ul .special");
+      let lengths = document.querySelector(".validation ul .length");
+
+
+      function checkPassword(data) {
+        const lower = new RegExp("(?=.[a-z])");
+        const upper = new RegExp("(?=.*[A-Z])");
+        const number = new RegExp("(?=.*[0-9])");
+        const special = new RegExp("(?=.*[!@#\$%\^&\*])");
+        const length = new RegExp("(?=.{8,})");
+
+        if (lower.test(data)) {
+          lowerCase.querySelector(".heding").classList.add("active");
+        } else {
+          lowerCase.querySelector(".heding").classList.remove("active");
+        }
+
+        if (upper.test(data)) {
+          uppercase.querySelector(".heding").classList.add("active");
+        } else {
+          uppercase.querySelector(".heding").classList.remove("active");
+        }
+
+        if (number.test(data)) {
+          numbers.querySelector(".heding").classList.add("active");
+        } else {
+          numbers.querySelector(".heding").classList.remove("active");
+        }
+
+        if (special.test(data)) {
+          specials.querySelector(".heding").classList.add("active");
+        } else {
+          specials.querySelector(".heding").classList.remove("active");
+        }
+
+        if (length.test(data)) {
+          lengths.querySelector(".heding").classList.add("active");
+        } else {
+          lengths.querySelector(".heding").classList.remove("active");
+        }
+      }
+
+      iconPass.addEventListener("click", () => {
+        if (password.type === "password") {
+          password.setAttribute("type", "text");
+          iconPassI.classList.replace("fa-eye", "fa-eye-slash");
+        } else {
+          password.setAttribute("type", "password");
+          iconPassI.classList.replace("fa-eye-slash", "fa-eye");
+        }
+      });
+    </script>
+  </body>
+</html>

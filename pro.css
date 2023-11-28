@@ -1,0 +1,83 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+  user-select: none;
+  list-style: none;
+}
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #8cccff;
+}
+.box {
+  position: relative;
+  width: 300px;
+}
+.box .inputBox {
+  position: relative;
+  width: 100%;
+  border-radius: 5px;
+  background-color: #fff;
+  padding: 12px 10px;
+  margin-bottom: 20px;
+}
+.box .inputBox input {
+  border: none;
+  width: 100%;
+  padding: 5px;
+  outline: none;
+  font-size: 20px;
+}
+.box .inputBox input::placeholder {
+  font-size: 15px;
+  text-transform: capitalize;
+}
+
+#toggleBtn {
+  width: 34px;
+  height: 34px;
+  background-color: rgba(0, 0, 0, 0.05);
+  position: absolute;
+  top: 11px;
+  right: 10px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.validation {
+  background-color: #376488;
+  padding: 10px;
+  margin-top: 30px;
+  border-radius: 5px;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15);
+}
+.validation ul li {
+  margin: 10px 0;
+  color: #fff;
+  letter-spacing: 1px;
+  font-size: 15px;
+  transition:all 0.5s;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.validation ul li .heding{
+    margin-left: 8px;
+}
+
+
+
+
+
+.validation ul li .heding.active{
+  color: rgba(255, 255, 255, 0.5);
+
+
+}
